@@ -1,0 +1,3 @@
+[submodule "odoo-faker"]
+	path = odoo-faker
+	url = ssh://git@github.com/estudio-hawara/odoo-faker.git
