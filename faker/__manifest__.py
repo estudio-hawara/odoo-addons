@@ -18,4 +18,9 @@
         ]
     },
     'license': 'LGPL-3',
+    'images': [
+        'static/description/screenshots/screencast.gif',
+        'static/description/screenshots/generator_screenshot.png',
+        'static/description/screenshots/generator_wizard.png',
+    ]
 }

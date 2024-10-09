@@ -19,7 +19,7 @@
 
 Once the addon is installed, you'll find a new **Faker** option in your menu. That option will let you define your own **Generators**.
 
-![Screenshot of the Odoo Faker generator form](./static/description/screenshots/generator.png)
+![Screenshot of the Odoo Faker generator form](./static/description/screenshots/generator_screenshot.png)
 
 Each of your generators will target a model from your Odoo database. You can create as many generators as you want. For every generator, you can define:
 
