@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+acess_faker_generator,faker.generator,model_faker_generator,base.group_user,1,1,1,1
+acess_faker_generator_fields,faker.generator.fields,model_faker_generator_fields,base.group_user,1,1,1,1
+acess_faker_generator_wizard,faker.generator.wizard,model_faker_generator_wizard,base.group_user,1,1,1,1

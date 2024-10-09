@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="generator_list_view" model="ir.ui.view">
+        <field name="name">faker.generator.tree</field>
+        <field name="model">faker.generator</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="faker_locale"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="generator_form_view" model="ir.ui.view">
+        <field name="name">faker.generator.form</field>
+        <field name="model">faker.generator</field>
+        <field name="arch" type="xml">
+            <form string="Generator">
+                <header>
+                    <button
+                        class="oe_highlight"
+                        name="show_generator_wizard"
+                        type="object"
+                        string="Generate"
+                        icon="fa-industry"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="model_id"/>
+                        <field name="faker_locale"/>
+                    </group>
+                    <notebook>
+                        <page string="Fields">
+                            <field name="field_ids">
+                                <list editable="bottom">
+                                    <field name="generator_id" optional="hide"/>
+                                    <field name="model" optional="hide"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="field_id"/>
+                                    <field name="value_type"/>
+                                    <field name="faker_generator" readonly="value_type != 'faker'"/>
+                                    <field name="faker_locale" readonly="value_type != 'faker'" optional="hide"/>
+                                    <field name="constant_value" readonly="value_type != 'constant'"/>
+                                    <field name="row_generator_id" readonly="value_type != 'generated_rows'"/>
+                                    <field name="row_count_min" readonly="value_type != 'generated_rows'" widget="char" optional="hide"/>
+                                    <field name="row_count_max" readonly="value_type != 'generated_rows'" widget="char" optional="hide"/>
+                                    <field name="example"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="show_generator_action" model="ir.actions.act_window">
+        <field name="name">Generator</field>
+        <field name="res_model">faker.generator</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

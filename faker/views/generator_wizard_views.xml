@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="generator_wizard_view" model="ir.ui.view">
+        <field name="name">faker.generator.wizard.view</field>
+        <field name="model">faker.generator.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <p>How many records do you want to generate?</p>
+
+                <group>
+                    <field name="generator_id"/>
+                    <field name="records"/>
+                    <field name="max_errors"/>
+                </group>
+
+                <footer>
+                   <button
+                        class="oe_highlight"
+                        name="action_generate_records"
+                        string="Generate"
+                        type="object"/>
+                   <button name="cancel" string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="show_generator_wizard_action" model="ir.actions.act_window">
+        <field name="name">Generator wizard</field>
+        <field name="res_model">faker.generator.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
