@@ -1,23 +1,25 @@
 {
     'name': 'Faker',
     'version': '18.0.0.0.1',
-    'depends': ['base'],
+    'license': 'LGPL-3',
+
+    'description': 'Provides support to dynamically generate demo data',
     'author': 'Estudio Hawara <estudio@hawara.es>',
     'category': 'Administration',
-    'description': 'Provides support to dynamically generate demo data',
+
     'depends': ['base'],
+    'extenal_dependencies': {
+        'python': [
+            'Faker'
+        ]
+    },
+
     'data': [
         'security/ir.model.access.csv',
         'views/generator_views.xml',
         'views/generator_wizard_views.xml',
         'views/menu_items.xml'
     ],
-    'extenal_dependencies': {
-        'python': [
-            'Faker'
-        ]
-    },
-    'license': 'LGPL-3',
     'images': [
         'static/description/screenshots/screencast.gif',
         'static/description/screenshots/generator_screenshot.png',
