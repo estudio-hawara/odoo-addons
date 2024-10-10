@@ -10,7 +10,7 @@ class Generator(models.Model):
 
     name = fields.Char(string='Name')
     model_id = fields.Many2one('ir.model', string='Model')
-    field_ids = fields.One2many('faker.generator.fields', 'generator_id', string='Fields')
+    field_ids = fields.One2many('faker.generator.fields', 'generator_id', string='Fields', copy=True)
     faker_locale = fields.Many2one('res.lang', string='Faker locale', default=default_faker_locale)
 
     def show_generator_wizard(self):
