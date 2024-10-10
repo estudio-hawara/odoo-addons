@@ -20,6 +20,9 @@
         'views/generator_wizard_views.xml',
         'views/menu_items.xml'
     ],
+    'demo': [
+        'demo/corporations_from_uk.xml',
+    ],
     'images': [
         'static/description/screenshots/screencast.gif',
         'static/description/screenshots/generator_screenshot.png',
