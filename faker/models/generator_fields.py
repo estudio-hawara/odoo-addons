@@ -23,13 +23,22 @@ class GeneratorFields(models.Model):
     model = fields.Char(string='Model', readonly=True)
     field_id = fields.Many2one('ir.model.fields', string='Field', domain="[('model', '=', model), ('store', '=', True)]", ondelete='set null')
     value_type = fields.Selection(get_value_types(), string='Type', required=True)
+    example = fields.Char(compute='get_example', string='Example')
+
+    # Constant values
+    constant_value = fields.Char(string='Constant value')
+
+    # Fakers
     faker_generator = fields.Selection(get_faker_generators(), string='Faker generator')
     faker_locale = fields.Many2one('res.lang', string='Faker locale', default=default_faker_locale)
+
+    # Random record
+    random_record_domain = fields.Char(string='Random record domain', required=False)
+
+    # Row generators
     row_generator_id = fields.Many2one('faker.generator', string='Row generator')
     row_count_min = fields.Char(string='Row count minimum', required=False)
     row_count_max = fields.Char(string='Row count maximum', required=False)
-    constant_value = fields.Char(string='Constant value')
-    example = fields.Char(compute='get_example', string='Example')
 
     def generate(self, include_rows = False):
         value = None
@@ -41,7 +50,7 @@ class GeneratorFields(models.Model):
             value = get_faked_value(self)
 
         if self.value_type == 'random_record':
-            value = get_random_record(self, self.env.cr)
+            value = get_random_record(self, self.env)
 
         if self.value_type == 'generated_rows' and include_rows:
             value = get_generated_rows_value(self)

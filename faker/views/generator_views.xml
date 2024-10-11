@@ -36,13 +36,14 @@
                             <field name="field_ids">
                                 <list editable="bottom">
                                     <field name="generator_id" optional="hide"/>
-                                    <field name="model" optional="hide"/>
+                                    <field name="model" column_invisible="1"/>
                                     <field name="sequence" widget="handle"/>
                                     <field name="field_id"/>
                                     <field name="value_type"/>
+                                    <field name="constant_value" readonly="value_type != 'constant'"/>
                                     <field name="faker_generator" readonly="value_type != 'faker'"/>
                                     <field name="faker_locale" readonly="value_type != 'faker'" optional="hide"/>
-                                    <field name="constant_value" readonly="value_type != 'constant'"/>
+                                    <field name="random_record_domain" readonly="value_type != 'random_record'"/>
                                     <field name="row_generator_id" readonly="value_type != 'generated_rows'"/>
                                     <field name="row_count_min" readonly="value_type != 'generated_rows'" widget="char" optional="hide"/>
                                     <field name="row_count_max" readonly="value_type != 'generated_rows'" widget="char" optional="hide"/>

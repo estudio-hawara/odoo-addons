@@ -19,9 +19,17 @@ class Generator(models.Model):
         action['context'] = {'generator_id': self.id}
         return action
 
-    def generate(self):
+    def get_empty_record(self):
+        empty = {}
+        for field in self.field_ids.search([('generator_id', '=', self.id)], order='sequence asc, id asc'):
+            empty[field.field_id.name] = None
+        return empty
+
+    def generate(self, break_at=None):
         generated = {}
-        for field in self.field_ids:
+        for field in self.field_ids.search([('generator_id', '=', self.id)], order='sequence asc, id asc'):
+            if break_at and field.sequence >= break_at.sequence and field.id >= break_at.id:
+                break
             generated[field.field_id.name] = field.generate(include_rows=True)
         return generated
 
