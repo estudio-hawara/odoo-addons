@@ -7,6 +7,7 @@ from odoo.addons.faker.generators.faker import get_faker_generators, clear_faker
 from odoo.addons.faker.generators.generated_rows import get_generated_rows_value, clear_generated_rows_fields
 from odoo.addons.faker.generators.random_record import get_random_record
 from odoo.addons.faker.generators.sequential_dates import get_sequential_dates_value
+from odoo.addons.faker.wizard.generator_wizard import BatchInfo
 
 class GeneratorFields(models.Model):
     _name = 'faker.generator.fields'
@@ -45,8 +46,11 @@ class GeneratorFields(models.Model):
     row_count_min = fields.Char(string='Row count minimum', required=False)
     row_count_max = fields.Char(string='Row count maximum', required=False)
 
-    def generate(self, row_count=1, row_number=1, include_rows=False):
+    def generate(self, batch_info=None, include_rows=False):
         value = None
+
+        if not batch_info:
+            batch_info = BatchInfo(row_count=1, row_number=1)
 
         if self.value_type == 'constant':
             value = self.constant_value
@@ -55,7 +59,7 @@ class GeneratorFields(models.Model):
             value = get_faked_value(self)
 
         if self.value_type == 'sequential_dates':
-            value = get_sequential_dates_value(self, row_count, row_number)
+            value = get_sequential_dates_value(self, batch_info=batch_info)
 
         if self.value_type == 'random_record':
             value = get_random_record(self, self.env)

@@ -22,7 +22,8 @@ class GeneratorWizard(models.TransientModel):
 
         while generated_records < self.records and raised_errors < self.max_errors:
             try:
-                self.generator_id.generate_and_save(self.records)
+                batch_info = BatchInfo(self.records, generated_records)
+                self.generator_id.generate_and_save(batch_info)
                 generated_records += 1
             except Exception as e:
                 raised_errors += 1
@@ -37,3 +38,8 @@ class GeneratorWizard(models.TransientModel):
                 "The maximum accepted number of errors was reached.\n\n"
                 "Please, check your generators and try again."
             )
+
+class BatchInfo:
+    def __init__(self, row_count, row_number):
+        self.row_count = row_count
+        self.row_number = row_number

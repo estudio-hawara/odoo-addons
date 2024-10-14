@@ -25,16 +25,14 @@ class Generator(models.Model):
             empty[field.field_id.name] = None
         return empty
 
-    def generate(self, row_count=1, break_at=None):
+    def generate(self, batch_info=None, break_at=None):
         generated = {}
-        row_number = 1
         for field in self.field_ids.search([('generator_id', '=', self.id)], order='sequence asc, id asc'):
             if break_at and field.sequence >= break_at.sequence and field.id >= break_at.id:
                 break
-            generated[field.field_id.name] = field.generate(row_count=row_count, row_number=row_number, include_rows=True)
-            row_number += 1
+            generated[field.field_id.name] = field.generate(batch_info=batch_info, include_rows=True)
         return generated
 
-    def generate_and_save(self, row_count=1):
-        generated = self.generate(row_count=row_count)
+    def generate_and_save(self, batch_info):
+        generated = self.generate(batch_info)
         self.env[self.model_id.model].create(generated)

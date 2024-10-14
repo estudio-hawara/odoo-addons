@@ -1,15 +1,15 @@
 from datetime import date, timedelta
 from math import ceil
 
-def get_sequential_dates_value(record, row_count=1, row_number=1):
+def get_sequential_dates_value(record, batch_info):
     if not record.value_type == 'sequential_dates':
         raise Exception('A random record cannot be created for this {} field'.format(record.value_type))
 
     return get_sequential_dates(
         date_min=record.sequential_dates_min,
         date_max=record.sequential_dates_max,
-        row_count=row_count,
-        row_number=row_number)
+        row_count=batch_info.row_count,
+        row_number=batch_info.row_number)
 
 def get_sequential_dates(date_min=None, date_max=None, row_count=1, row_number=1):
     if not date_max:
