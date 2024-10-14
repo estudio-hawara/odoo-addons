@@ -106,10 +106,10 @@ class GeneratorFields(models.Model):
 
             message = None
 
-            if not record.row_count_min.isdigit():
+            if not record.row_count_min or not record.row_count_min.isdigit():
                 message = 'The minimum row count should be a positive integer'
 
-            if not record.row_count_max.isdigit():
+            if not record.row_count_max or not record.row_count_max.isdigit():
                 message = 'The maximum row count should be a positive integer'
 
             if message:
