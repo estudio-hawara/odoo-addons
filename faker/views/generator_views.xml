@@ -44,6 +44,8 @@
                                     <field name="faker_generator" readonly="value_type != 'faker'"/>
                                     <field name="faker_locale" readonly="value_type != 'faker'" optional="hide"/>
                                     <field name="random_record_domain" readonly="value_type != 'random_record'"/>
+                                    <field name="sequential_dates_min" readonly="value_type != 'sequential_dates'" optional="hide"/>
+                                    <field name="sequential_dates_max" readonly="value_type != 'sequential_dates'" optional="hide"/>
                                     <field name="row_generator_id" readonly="value_type != 'generated_rows'"/>
                                     <field name="row_count_min" readonly="value_type != 'generated_rows'" widget="char" optional="hide"/>
                                     <field name="row_count_max" readonly="value_type != 'generated_rows'" widget="char" optional="hide"/>

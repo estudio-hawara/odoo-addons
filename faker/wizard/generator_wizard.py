@@ -22,7 +22,7 @@ class GeneratorWizard(models.TransientModel):
 
         while generated_records < self.records and raised_errors < self.max_errors:
             try:
-                self.generator_id.generate_and_save()
+                self.generator_id.generate_and_save(self.records)
                 generated_records += 1
             except Exception as e:
                 raised_errors += 1

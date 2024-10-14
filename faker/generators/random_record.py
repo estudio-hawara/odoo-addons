@@ -11,7 +11,7 @@ def get_random_record(record, env):
     if record.random_record_domain:
         string_domain = record.random_record_domain
 
-    context = record.generator_id.generate(break_at=record)
+    context = record.generator_id.generate(row_count=1, break_at=record)
     empty_record = record.generator_id.get_empty_record()
     locals_dict = {**empty_record, **context}
     domain = safe_eval(string_domain, locals_dict=locals_dict)

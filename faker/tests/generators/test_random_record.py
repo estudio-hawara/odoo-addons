@@ -3,6 +3,7 @@ from odoo.tests import TransactionCase, tagged
 from odoo.tools import Query
 from odoo.addons.faker.generators.random_record import get_random_record
 
+@tagged('faker')
 class TestRandomRecord(TransactionCase):
     def test_get_random_record(self):
         # Prepare

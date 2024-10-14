@@ -1,7 +1,10 @@
+from datetime import datetime
+
 def get_value_types():
     return [
         ('faker', 'Faker'),
         ('constant', 'Constant'),
+        ('sequential_dates', 'Sequential dates'),
         ('random_record', 'Random record'),
         ('generated_rows', 'Generated rows'),
     ]
@@ -21,5 +24,8 @@ def get_typed_value(record, value):
 
     if record.field_id.ttype in ['char', 'text']:
         return str(value)
+
+    if record.field_id.ttype == 'sequential_dates':
+        return datetime.fromisoformat(value)
 
     return value
