@@ -21,7 +21,8 @@
         'views/menu_items.xml'
     ],
     'demo': [
-        'demo/corporations_from_uk.xml',
+        'demo/corporations_generator.xml',
+        'demo/sale_order_generator.xml',
     ],
     'images': [
         'static/description/screenshots/screencast.gif',

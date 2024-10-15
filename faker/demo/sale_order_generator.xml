@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="line_order_generator" model="faker.generator">
+        <field name="name">Lines of sale orders</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="faker_locale" ref="base.lang_en_GB"/>
+    </record>
+
+    <record id="line_order_generator__product_id" model="faker.generator.fields">
+        <field name="generator_id" ref="line_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order_line__product_id" />
+        <field name="value_type">random_record</field>
+    </record>
+
+    <record id="line_order_generator__product_uom_qty" model="faker.generator.fields">
+        <field name="generator_id" ref="line_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order_line__product_uom_qty" />
+        <field name="value_type">constant</field>
+        <field name="constant_value">1</field>
+    </record>
+
+    <record id="line_order_generator__price_unit" model="faker.generator.fields">
+        <field name="generator_id" ref="line_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order_line__price_unit" />
+        <field name="value_type">faker</field>
+        <field name="faker_generator">numerify</field>
+    </record>
+
+    <record id="sale_order_generator" model="faker.generator">
+        <field name="name">Sale orders of this year</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="faker_locale" ref="base.lang_en_GB"/>
+    </record>
+
+    <record id="sale_order_generator__date_order" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__date_order" />
+        <field name="value_type">sequential_dates</field>
+    </record>
+
+    <record id="sale_order_generator__commitment_date" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__commitment_date" />
+        <field name="value_type">sequential_dates</field>
+    </record>
+
+    <record id="sale_order_generator__user_id" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__user_id" />
+        <field name="value_type">random_record</field>
+    </record>
+
+    <record id="sale_order_generator__partner_id" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__partner_id" />
+        <field name="value_type">random_record</field>
+    </record>
+
+    <record id="sale_order_generator__campaign_id" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__campaign_id" />
+        <field name="value_type">random_record</field>
+    </record>
+
+    <record id="sale_order_generator__medium_id" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__medium_id" />
+        <field name="value_type">random_record</field>
+    </record>
+
+    <record id="sale_order_generator__source_id" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__source_id" />
+        <field name="value_type">random_record</field>
+    </record>
+
+    <record id="sale_order_generator__order_line" model="faker.generator.fields">
+        <field name="generator_id" ref="sale_order_generator" />
+        <field name="field_id" ref="sale.field_sale_order__order_line" />
+        <field name="value_type">generated_rows</field>
+        <field name="row_generator_id" ref="line_order_generator"/>
+        <field name="row_count_min">1</field>
+        <field name="row_count_max">5</field>
+    </record>
+</odoo>

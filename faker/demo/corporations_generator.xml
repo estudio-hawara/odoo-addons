@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="uk_corporations_generator" model="faker.generator">
+    <record id="corporations_generator" model="faker.generator">
         <field name="name">Corporations from the United Kingdom</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="faker_locale" ref="base.lang_en_GB"/>
     </record>
 
-    <record id="uk_corporations_generator_active" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__active" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__active" />
         <field name="value_type">constant</field>
         <field name="constant_value">1</field>
     </record>
 
-    <record id="uk_corporations_generator_is_company" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__is_company" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__is_company" />
         <field name="value_type">constant</field>
         <field name="constant_value">1</field>
     </record>
 
-    <record id="uk_corporations_generator_name" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__name" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__name" />
         <field name="value_type">faker</field>
         <field name="faker_generator">company</field>
         <field name="faker_locale" ref="base.lang_en_GB"/>
     </record>
 
-    <record id="uk_corporations_generator_email" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__email" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__email" />
         <field name="value_type">faker</field>
         <field name="faker_generator">email</field>
         <field name="faker_locale" ref="base.lang_en_GB"/>
     </record>
 
-    <record id="uk_corporations_generator_phone" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__phone" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__phone" />
         <field name="value_type">faker</field>
         <field name="faker_generator">phone_number</field>
         <field name="faker_locale" ref="base.lang_en_GB"/>
     </record>
 
-    <record id="uk_corporations_generator_country_id" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__country_id" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__country_id" />
         <field name="value_type">constant</field>
         <field name="constant_value" ref="base.uk" />
     </record>
 
-    <record id="uk_corporations_generator_state_id" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__state_id" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__state_id" />
         <field name="value_type">random_record</field>
         <field name="random_record_domain">[('country_id', '=', country_id)]</field>
     </record>
 
-    <record id="uk_corporations_generator_zip" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__zip" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__zip" />
         <field name="value_type">faker</field>
         <field name="faker_generator">zipcode</field>
         <field name="faker_locale"></field>
     </record>
 
-    <record id="uk_corporations_generator_city" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__city" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__city" />
         <field name="value_type">faker</field>
         <field name="faker_generator">city</field>
         <field name="faker_locale" ref="base.lang_en_GB"/>
     </record>
 
-    <record id="uk_corporations_generator_street" model="faker.generator.fields">
-        <field name="generator_id" ref="uk_corporations_generator" />
+    <record id="corporations_generator__street" model="faker.generator.fields">
+        <field name="generator_id" ref="corporations_generator" />
         <field name="field_id" ref="base.field_res_partner__street" />
         <field name="value_type">faker</field>
         <field name="faker_generator">street_address</field>
