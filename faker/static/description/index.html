@@ -1,17 +1,52 @@
 <h1 id="odoo-faker">Odoo Faker</h1>
 
+<blockquote>
+  <p><strong style="color: red">Warning</strong></p>
+  <p>
+    Take into account that this addon is still in development mode. Also, keep
+    in mind it's not intended for production sites. Use it at your own
+    discretion.
+  </p>
+</blockquote>
+
 <p>
   <strong>Odoo Faker</strong> is an addon for <strong>Odoo</strong> that
-  facilitates the generation of random demo data.
+  facilitates the generation of random demo data. As they are other ways, here's
+  a comparison.
 </p>
 
-<h2 id="warning">Warning</h2>
-
-<blockquote>
-  <p>First, take into account that this addon is still in development mode.</p>
-  <p>Also, remember that the addon is not intended for production sites.</p>
-  <p>Use it at your own discretion.</p>
-</blockquote>
+<table>
+  <tr>
+    <td>Feature</td>
+    <td><strong>Demo</strong> mode</td>
+    <td>The <strong>populate</strong> command</td>
+    <td>The <strong>Faker</strong> addon</td>
+  </tr>
+  <tr>
+    <td>Flexible number of records</td>
+    <td>𐄂</td>
+    <td>🗸</td>
+    <td>🗸</td>
+  </tr>
+  <tr>
+    <td>Works for all models</td>
+    <td>𐄂 (1)</td>
+    <td>𐄂 (2)</td>
+    <td>🗸</td>
+  </tr>
+  <tr>
+    <td>Has a user interface</td>
+    <td>𐄂</td>
+    <td>𐄂</td>
+    <td>🗸</td>
+  </tr>
+  <tr>
+    <td>Supports massive amounts of data</td>
+    <td>𐄂</td>
+    <td>🗸</td>
+    <td>𐄂</td>
+  </tr>
+</table>
 
 <h2 id="usage">Usage</h2>
 
@@ -107,6 +142,23 @@
     value.
   </p>
 </blockquote>
+
+<h4 id="sequential-dates">Sequential dates</h4>
+
+<p>
+  Some times you may want to create records with sequential dates. For instance,
+  you may want to do it when you are populating a demo database with sale
+  orders. Otherwise, you'd obtain an incoherent database where sorting the
+  orders by number wouldn't be consistent with ordering by date. This would be a
+  disaster if we were talking about invoices!
+</p>
+
+<p>
+  In order to fix that, you can use <strong>Sequential dates</strong> for your
+  date columns. When defining a date with this type of generator, you'll be able
+  to add a minimum and a maximum date, so that all the generated dates will be
+  in that period.
+</p>
 
 <h4 id="random-record">Random record</h4>
 
