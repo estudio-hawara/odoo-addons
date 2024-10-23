@@ -10,10 +10,10 @@
 
 | Feature                          | **Demo** mode | The **populate** command | The **Faker** addon |
 | -------------------------------- | ------------- | ------------------------ | ------------------- |
-| Flexible number of records       | 𐄂             | 🗸                        | 🗸                   |
-| Works for all models             | 𐄂 (1)         | 𐄂 (2)                    | 🗸                   |
-| Has a user interface             | 𐄂             | 𐄂                        | 🗸                   |
-| Supports massive amounts of data | 𐄂             | 🗸                        | 𐄂                   |
+| Flexible number of records       | 👎🏿            | 👍🏿                       | 👍🏿                  |
+| Works for all models             | 👎🏿 (1)        | 👎🏿 (2)                   | 👍🏿                  |
+| Has a user interface             | 👎🏿            | 👎🏿                       | 👍🏿                  |
+| Supports massive amounts of data | 👎🏿            | 👍🏿                       | 👎🏿                  |
 
 (1) The **Demo** mode only provides fixed amount of records via XML files that must be provided by the corresponding addon.
 
