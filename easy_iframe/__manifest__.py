@@ -12,6 +12,9 @@
     'data': [
         'views/website_iframe.xml',
     ],
+    'images': [
+        'static/description/screenshots/screencast.gif',
+    ],
 
     'installable': True,
     'application': False,

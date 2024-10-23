@@ -1,7 +1,7 @@
 <odoo>
     <template id="layout_inherit" inherit_id="web.frontend_layout">
         <xpath expr="//div[@id='wrapwrap']" position="before">
-            <t t-if="request.params.get('is_iframed')">
+            <t t-if="request.params.get('iframe')">
                 <t t-set="no_header" t-value="True"/>
                 <t t-set="no_footer" t-value="True"/>
                 <t t-set="no_copyright" t-value="True"/>
